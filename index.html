@@ -1,0 +1,133 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Slider Day</title>  
+    <style>  
+        body {  
+            margin: 0;  
+            font-family: Arial, Helvetica, sans-serif;  
+            background-color: #f9f9f9;  
+            color: #333;   
+            line-height: 1.6;   
+        }  
+
+        .container {  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            padding: 20px;   
+        }  
+
+        h1 {  
+            margin-bottom: 20px;  
+        }  
+
+        .aptitudes {  
+            display: flex;  
+            align-items: center;  
+            background-color: #f3d9d3;   
+            padding: 10px 20px;  
+            border-radius: 5px;   
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+            width: 80%;  
+            margin-bottom: 20px;   
+        }  
+
+        .aptitudes span {  
+            margin-right: 10px;   
+            font-weight: bold;  
+        }  
+
+        p {  
+            max-width: 800px;  
+            text-align: center;   
+        }  
+
+        .all-courses {  
+            display: flex;  
+            flex-wrap: wrap;  
+            justify-content: center;  
+        }  
+
+    </style>  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Gerardo Herrera</h1>  
+        <div class="aptitudes">  
+            <span id="icons"></span>   
+            <span id="skills"></span>  
+        </div>  
+        <p>  
+            I am Gerardo Herrera, a software developer, volunteer, and gamer. I love learning new technologies   
+            and playing video games. In December 2024, I started to learn JavaScript. In January 2025, I got   
+            my first internship at Google, where I applied my skills and knowledge of Python, JavaScript, Node,   
+            and PostgreSQL.            
+        </p>  
+    </div>  
+    
+    <div class="all-courses">  
+    </div>  
+
+    <script>  
+        let emojis = ["😎","🥸","👻","🤠","😺"];  
+        let rols = ['Software Developer','Programmer','Systems Engineer','Backend Developer','Cloud Engineer'];  
+        let indexRoles = 0; 
+
+        const skills = document.querySelector('#skills');  
+        const icons = document.querySelector('#icons');  
+
+        setInterval(() => {  
+            skills.innerText = rols[indexRoles];  
+            icons.innerText = emojis[indexRoles];  
+
+            indexRoles = (indexRoles + 1) % rols.length;  
+        }, 1000);     
+
+        let myCourses = [  
+            '100 Days of Code: Python BootCamp',   
+            'JavaScript Interactive',   
+            '30 Days Of JavaScript',  
+            'Node JS, Express and MongoDB: The Complete BootCamp',   
+            'Introduction to Cloud Computing',   
+            'English for IT and Developers'  
+        ];  
+
+        const divResult = document.querySelector('.all-courses');  
+        
+        for (const course of myCourses) {  
+            let divCourse = document.createElement('div');  
+            divCourse.className = 'course';  
+            divCourse.innerText = course;  
+            divCourse.style.fontSize = '20px';  
+            divCourse.style.padding = '15px';  
+            divCourse.style.margin = '15px';  
+            divCourse.style.width = '200px';  
+            divCourse.style.height = '150px';  
+            divCourse.style.backgroundColor = 'white';  
+            divCourse.style.boxShadow = '0 6px 12px rgba(0, 0, 0, 0.9)';   
+            divCourse.style.display = 'flex';  
+            divCourse.style.alignItems = 'center';  
+            divCourse.style.justifyContent = 'center';  
+            divCourse.style.textAlign = 'center';  
+            divCourse.style.color = 'brown';  
+
+            divResult.appendChild(divCourse);  
+        }  
+
+        let technologies = ['Python','Flask','JavaScript','MongoDB', 'PostgreSQL', 'Node.js','Express.js', 'AWS'];  
+        let colors = ['#FF5733', '#33FF57', '#3357FF', '#F3FF33', '#FF33A8', '#FF8C33', '#33FFF2', '#B533FF'];  
+        let indexTech = 0; 
+
+        const p_tech = document.createElement('p');  
+        divResult.appendChild(p_tech);  
+
+        setInterval(() => {  
+            p_tech.innerHTML = `The technology I use is: <span style="color: ${colors[indexTech]}; font-size: 40px;">${technologies[indexTech].toUpperCase()}</span>`;  
+            indexTech = (indexTech + 1) % technologies.length; 
+        }, 1000);  
+    </script>  
+</body>  
+</html>
